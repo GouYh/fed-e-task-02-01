@@ -31,7 +31,7 @@ const clear = () => {
 }
 
 // 样式编译
-cosnt style = () => {
+const style = () => {
     return src('src/assets/styles/*.scss', { base: 'src' }) // base 指定保留该目录下的目录结构
         .pipe(plugins.sass({ outputStyle: 'expanded' }))
         .pipe(dest('temp'))
@@ -111,16 +111,16 @@ const serve = () => {
 }
 
 // 将构建注释中的文件，合并到一个文件中
-cosnt useref = () => {
+const useref = () => {
     // 创建了temp临时目录，解决了解决冲突时，构建目录被打破的问题
     return src('temp/*.html', { base: 'dist' })
         .pipe(plugins.useref({ searchPath: ['dist', '.'] }))
         // 此处会有3种文件类型:html, css, js，我们需要对useref生成的文件进行压缩
         // 注意，当文件中构建注释不存在时，useref就不会生成文件
-        。pipe(plugins.if(/\.js$/, plugins.uglify()))
-        。pipe(plugins.if(/\.css$/, plugins.cleanCss()))
+        .pipe(plugins.if(/\.js$/, plugins.uglify()))
+        .pipe(plugins.if(/\.css$/, plugins.cleanCss()))
         // 可以指定minifyCss删除行内样式的空格，minifyJs的script中的空格
-        。pipe(plugins.if(/\.html$/, plugins.htmlmin({
+        .pipe(plugins.if(/\.html$/, plugins.htmlmin({
              collapseWhitespace: true,
              minifyCss: true,
              minifyJs: true
