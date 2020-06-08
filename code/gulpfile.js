@@ -18,9 +18,11 @@ const bs = browserSync.create()
 const del = require('del')
 
 const data = [
-    menus: [],
-    pkg: require('./package.json'),
-    date: new Date()
+    {
+        menus: [],
+        pkg: require('./package.json'),
+        date: new Date()
+    }
 ]
 
 // 文件清除
