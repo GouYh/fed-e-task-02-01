@@ -24,7 +24,10 @@
 编程题：（以下题目见video目录演示视频）
 
 1.概述脚手架实现的过程，并使用NodeJS完成一个自定义的小型脚手架工具
+答：见video/node-cli-video
 
 2.尝试使用Gulp完成项目的自动化构建
+答：见video/gulo-video
 
 3.使用Grunt完成项目的自动化构建
+答：见video/grunt-video
